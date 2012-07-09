@@ -1,0 +1,8 @@
+Flask==0.8
+Jinja2==2.6
+Werkzeug==0.8.3
+beautifulsoup4==4.1.0
+coopy==0.3
+distribute==0.6.24
+requests==0.13.2
+wsgiref==0.1.2
