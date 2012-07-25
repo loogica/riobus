@@ -17,8 +17,8 @@
 
   <div data-role="content">	
     <ul data-role="listview" data-theme="g">
-      {% for line in lines %}
-      <li><a href="line/html/{{ line }}">{{ line }}</a></li>
+      {% for lid, line in lines.items() %}
+      <li><a href="line/html/{{ lid }}">{{ line.name.decode('latin-1') }}</a></li>
       {% endfor %}
     </ul>		
   </div><!-- /content -->
