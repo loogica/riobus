@@ -37,6 +37,6 @@ class RioBus(object):
         result = defaultdict(list)
         for line_name, line in self.lines.items():
             for street_name, street in line['streets'].items():
-                if nome.upper() in street['name'].upper():
-                    result[line.name].append(street)
+                if street_name[0].upper() in street['name'].upper():
+                    result[line['name']].append(street)
         return result
