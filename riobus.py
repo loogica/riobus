@@ -1,3 +1,4 @@
+import collections
 from coopy.decorators import readonly
 
 class RioBus(object):
@@ -20,9 +21,15 @@ class RioBus(object):
                            [(street['name'], street['direction'])] = street
 
     def init_line(self, name):
-        self.lines[name] = dict(name=name,
+        self.lines[name] = dict(line_id=name,
+                                name=None,
                                 city=None,
                                 streets=collections.OrderedDict())
+
+    def update_name_and_city(self, line_id, name, city):
+        line = self.lines[line_id]
+        line['name'] = name
+        line['city'] = city
 
     @readonly
     def search_street(self, nome):
@@ -31,5 +38,5 @@ class RioBus(object):
         for line_name, line in self.lines.items():
             for street_name, street in line['streets'].items():
                 if nome.upper() in street['name'].upper():
-                    result[line_name].append(street)
+                    result[line.name].append(street)
         return result
