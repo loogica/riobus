@@ -16,7 +16,7 @@
   </div><!-- /header -->
 
   <div data-role="content">	
-    <ul data-role="listview" data-theme="g">
+    <ul data-role="listview" data-theme="g" data-filter="true" data-filter-placeholder="Buscar Linha">
       {% for lid, line in lines.items() %}
       <li><a href="line/html/{{ lid }}">{{ line.name.decode('latin-1') }}</a></li>
       {% endfor %}
