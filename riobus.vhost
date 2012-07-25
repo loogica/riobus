@@ -1,0 +1,11 @@
+server {
+    listen 80;
+    server_name "riobus.loogica.net";
+
+    root /opt/apps/riobus;
+
+    location / {
+        uwsgi_pass unix:/opt/run/rio.sock;
+        include uwsgi_params;
+    }
+}
