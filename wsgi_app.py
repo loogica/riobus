@@ -26,8 +26,7 @@ def line(line_id):
 
 @app.route("/search/<nome>")
 def search(nome):
-    #streets = [street for street in riobus.search(nome)]
-    return jsonify(riobus.search(nome))
+    return jsonify(riobus.search_street(nome))
 
 if __name__ == "__main__":
     app.run()
