@@ -1,29 +1,26 @@
-<!DOCTYPE html> 
-<html> 
-  <head> 
-  <title>RioBus</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-</head> 
-<body> 
-
-<div data-role="page">
-
-  <div data-role="header">
-    <h1>{{ line['name'] }} - {{ line['city'] }}</h1>
-  </div><!-- /header -->
-
-  <div data-role="content">	
-    <ul data-role="listview" data-theme="g">
-      {% for key, street in line.streets.items() %}
-      <li>{{ key[1] }} - {{ key[0] }}</li>
-      {% endfor %}
-    </ul>		
-  </div><!-- /content -->
-
-</div><!-- /page -->
-
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RioBus</title>
+		<meta name="viewport" content="width=device-width, init-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mobile.css" />
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h1>{{ line['name'] }} - {{ line['city'] }}</h1>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview" data-theme="g">
+					{% for key, street in line.streets.items() %}
+						<li>{{ key[1] }} - {{ key[0] }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</body>
 </html>
