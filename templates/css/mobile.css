@@ -1,9 +1,0 @@
-* {text-shadow:none;}
-
-.ui-header {background:-webkit-linear-gradient(#003b4e, #001922);}
-.ui-header .ui-title {margin:0 10px;padding:.6em 0;text-align:left;background:url("../img/header-pin.png") no-repeat right center;}
-
-.ui-listview li, .ui-listview .ui-link-inherit {color:#fff;}
-.ui-listview li:nth-child(odd) {background:#66787e;}
-.ui-listview li:nth-child(even) {background:#59676d;}
-.ui-listview li .ui-icon {width:14px;height:14px;margin-top:-7px !important;border-radius:0;background:url("../img/list-icon.png") no-repeat;}
