@@ -31,6 +31,18 @@ class RioBus(object):
         line['name'] = name
         line['city'] = city
 
+    @property
+    @readonly
+    def formated_lines(self):
+        result = {}
+        for line_id, line in self.lines.items():
+            result[line_id] = dict(name=line['name'],
+                                   city=line['city'],
+                                   streets=collections.OrderedDict())
+            for street in line['streets']:
+                result[line_id]['streets'][street[0]] = street
+        return result
+
     @readonly
     def search_street(self, nome):
         from collections import defaultdict
@@ -39,4 +51,15 @@ class RioBus(object):
             for street_name, street in line['streets'].items():
                 if street_name[0].upper() in street['name'].upper():
                     result[line['name']].append(street)
+        return result
+
+    @readonly
+    def line_search(self, nome):
+        result = {}
+        for line_name, line in self.lines.items():
+            if nome in line['name'].decode('latin-1'):
+                from copy import deepcopy
+                r_line = deepcopy(line)
+                del r_line['streets']
+                result[line['line_id']] = r_line
         return result
