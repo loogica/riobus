@@ -6,6 +6,10 @@ class RioBus(object):
         self.lines = {}
         self.streets = {}
 
+    def get_lines(self):
+        _lines = dict((key, value) for key, value in self.lines.items()[:20])
+        return _lines
+
     def get_or_create_street(self, name, city_name, direction):
         key = (name, city_name, direction)
         if key in self.streets:
