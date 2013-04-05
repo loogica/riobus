@@ -12,7 +12,7 @@ riobus = init_persistent_system(RioBus())
 
 @app.route("/")
 def main():
-    return render_template('index.html', lines=riobus.get_lines())
+    return render_template('index.html', lines=riobus.lines)
 
 @app.route("/all_json")
 def main_json():
