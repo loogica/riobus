@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>RioBus</title>
-		<meta name="viewport" content="width=device-width, init-scale=1, user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/static/css/mobile.css" />
-	</head>
-	<body>
-		<div data-role="page">
-			<div data-role="header">
-				<h1>RioBus</h1>
-			</div>
-			<div data-role="content">
-				<ul data-role="listview" data-theme="g" data-filter="true" data-filter-placeholder="Buscar Linha">
-					{% for lid, line in lines.items() %}
-						<li><a href="line/html/{{ lid }}">{{ line.name.decode('latin-1') }}</a></li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
-	</body>
+  <head>
+    <title>RioBus</title>
+    <meta name="viewport" content="width=device-width, init-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/mobile.css" />
+    <script>
+      $(document).on('mobileinit', function() {
+        $.mobile.listview.prototype.options.filterCallback = function(text, search) {
+          if (search.length <= 2) {
+            return 0;
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+        <h1>RioBus</h1>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview" data-theme="g" data-filter="true" data-filter-placeholder="Buscar Linha">
+          {% for lid, line in lines.items() %}
+            <li><a href="line/html/{{ lid }}">{{ line.name.decode('latin-1') }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
